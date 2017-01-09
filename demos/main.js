@@ -20,7 +20,8 @@ Enjoy!
 
 (function () {
 
-    var scene_url = 'demos/scene.yaml',
+    // var scene_url = 'demos/scene.yaml',
+    var scene_url = 'https://mapzen.com/carto/bubble-wrap-style/5/bubble-wrap.yaml',
         osm_debug = false,
         rS, url_hash, map_start_location, url_style;
 
