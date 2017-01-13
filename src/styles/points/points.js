@@ -596,7 +596,7 @@ Object.assign(Points, {
                 position_index: this.vertex_layout.index.a_position,
                 shape_index: this.vertex_layout.index.a_shape,
                 offset_index: this.vertex_layout.index.a_offset,
-                outline_edge_index: this.vertex_layout.index.a_outline_edge
+                outline_edge_index: sampler ? null : this.vertex_layout.index.a_outline_edge
             },
             {
                 quad: size,
