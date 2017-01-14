@@ -14,6 +14,11 @@ uniform mat4 u_modelView;
 uniform mat3 u_normalMatrix;
 uniform mat3 u_inverseNormalMatrix;
 
+uniform vec4 u_selection_hover_group;
+uniform vec4 u_selection_click_group;
+uniform vec4 u_selection_hover_color;
+uniform vec4 u_selection_click_color;
+
 attribute vec4 a_position;
 attribute vec4 a_shape;
 attribute vec4 a_color;
@@ -42,11 +47,11 @@ vec2 rotate2D(vec2 _st, float _angle) {
 }
 
 void main() {
-    // Initialize globals
-    #pragma tangram: setup
-
     v_color = a_color;
     v_texcoord = a_texcoord;
+
+    // Initialize globals
+    #pragma tangram: setup
 
     // Position
     vec4 position = u_modelView * vec4(a_position.xyz, 1.);
