@@ -262,18 +262,18 @@ layers:
                 size: 2px
                 color: red
                 collide: false
-        # slow:
-        #     filter:
-        #         average_distance: {max: 7.5}
-        #     draw:
-        #         points:
-        #             color: blue
-        # short:
-        #     filter:
-        #         distance: {max: 50000}
-        #     draw:
-        #         points:
-        #             color: blue
+        slow:
+            filter:
+                average_distance: {max: 7.5}
+            draw:
+                points:
+                    color: blue
+        short:
+            filter:
+                distance: {max: 50000}
+            draw:
+                points:
+                    color: blue
     places:
         data: { source: mapzen }
 

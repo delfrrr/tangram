@@ -1,6 +1,6 @@
 (function () {
     const sceneUrl = 'demos/reduced-basemap.yaml';
-    const zoom = 10;
+    const zoom = 15;
     const map = L.map('map', {
         maxZoom: 20,
         zoomSnap: 0,
@@ -20,7 +20,7 @@
         cartodb.Tiles.getTiles({
             user_name: 'delfrrr',
             sublayers: [{
-                sql: `SELECT * FROM activities_small  where (average_speed > 7.5 and distance > 50000)`,
+                sql: `SELECT * FROM activities_small where (cartodb_id % 5) = 0`,
                 cartocss: '#layer { marker-width: 1;}'
             }]
         }, (res, err) => {
