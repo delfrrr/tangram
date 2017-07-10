@@ -16,6 +16,16 @@
     });
 
     layer.scene.subscribe({load() {
+        layer.scene.config.sources.mapbox = {
+            type: 'MVT',
+            url: 'https://api.mapbox.com/v4/delfrrr.cj4vfqdtf0o4q32s02oh71i2h-6f60n/{z}/{x}/{y}.mvt',
+            url_params: {access_token: 'pk.eyJ1IjoiZGVsZnJyciIsImEiOiJjaWkyYWRmdncwMG1sdG9rZmozdGZ3bnFoIn0.ARqPIvrkYl2hIXauNK3PLA'}//,
+            // transform: (function (data) {
+            //     console.log(data);
+            //     return data;
+            // }).toString()
+        }
+        layer.scene.updateConfig();
         // const tileUrl = 'https://cartocdn-ashbu_b.global.ssl.fastly.net/delfrrr/api/v1/map/delfrrr@3a8feb4b@e68654b9d76308e16e7770645b74e9e7:1499180180411/1/{z}/{x}/{y}.mvt'
         // cartodb.Tiles.getTiles({
         //     user_name: 'delfrrr',

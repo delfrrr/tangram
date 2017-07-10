@@ -34,6 +34,10 @@ styles:
     dashed:
         base: lines
         dash: [2, 1]
+    activity_lines:
+        base: lines
+        # bend: overlay
+
 sources:
     mapzen:
         type: TopoJSON
@@ -253,27 +257,59 @@ layers:
                             left: ['name:left:en', 'name:left']
                             right: ['name:right:en', 'name:right']
 
-    heatmap:
+    activities:
         data:
-            source: carto
-            layer: layer0
+            source: mapbox
+            layer: activities
         draw:
-            points:
-                size: 2px
-                color: red
-                collide: false
-        slow:
+            activity_lines:
+                width: 0.5px
+                color: blue
+                order: 1000
+        fast:
             filter:
-                average_distance: {max: 7.5}
+                average_speed: {min: 7.5}
+                distance: {min: 20000}
             draw:
-                points:
-                    color: blue
-        short:
+                activity_lines:
+                    color: red
+                    order: 1002
+        long:
             filter:
-                distance: {max: 50000}
+                distance: {min: 20000}
+                average_speed: {max: 7.5}
             draw:
-                points:
-                    color: blue
+                activity_lines:
+                    color: green
+                    order: 1001
+        # short:
+        #     filter:
+        #         distance: {max: 50000}
+        #     draw:
+        #         activity_lines:
+        #             color: rgba(0, 0, 255, 0.8)
+        #             order: 1000
+    # heatmap:
+    #     data:
+    #         source: mapbox
+    #         layer: activities
+    #     draw:
+    #         points:
+    #             size: 2px
+    #             color: red
+    #             collide: false
+    #     slow:
+    #         filter:
+    #             average_distance: {max: 7.5}
+    #         draw:
+    #             points:
+    #                 color: blue
+    #     short:
+    #         filter:
+    #             distance: {max: 50000}
+    #         draw:
+    #             points:
+    #                 color: blue
     places:
         data: { source: mapzen }
 
